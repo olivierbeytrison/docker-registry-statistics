@@ -21,7 +21,7 @@ class ImageStorage:
 		for blob in blob_loader.blobs.values():
 			if blob.type_ is types.BlobTypes.IMAGE_MANIFEST:
 				image_manifest = blob.data
-				if image_manifest.has_key('layers'):
+				if 'layers' in image_manifest:
 					yield types.ImageObject(
 						hash_ = blob.hash_,
 						config_blob = image_manifest['config']['digest'],
